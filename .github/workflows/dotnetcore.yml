@@ -48,6 +48,8 @@ jobs:
       # set up az cli login
       - uses: azure/login@v1
         with:
+          # Don't forget to create credentials in Azure Shell and set a Secret in Github
+          # az ad sp create-for-rbac --name "actions-demo-sp" --role contributor --scope /subscriptions/[YOUR_SUBSCRIPTION_ID]/resourceGroups/actions-demo-rg/providers/Microsoft.Web/sites/actions-demo-app --sdk-auth
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       # deploy web app using Azure credentials
       - name: 'Azure webapp deploy'
